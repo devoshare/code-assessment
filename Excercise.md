@@ -20,7 +20,6 @@
       implementation
 * Refactor
   * Refactored tests to help with  testing the business logic
-  
 * Tests
   * Tests for TicketOrderHandler for testing aggregation logic 
 * Implementation
@@ -34,4 +33,16 @@
   * Implementation the AppCOnfig class for handling properties
 * Tests
   * Tests for SeatCalculations and PaymentAmount in the TicketOrder class
+* Implementation
+  * Implemented calculateSeats and calculatePrice in the TicketOrder class
+* Tests
+  * Added integration tests to run tests end to end in the 
+    TicketServiceIntegrationTests 
+* Implementation
+  * Added the call to the paymentService and seatBooking service in the 
+    TicketServiceImpl class
+* Re-Ran all tests from IDE and command-line 
+* Ran the jacoco report 
+* Added 3 more tests into TestServiceImpl to improve test coverage after 
+  jacoco report
   

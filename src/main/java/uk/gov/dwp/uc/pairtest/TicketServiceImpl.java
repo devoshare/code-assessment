@@ -38,7 +38,8 @@ public class TicketServiceImpl implements TicketService {
         validateBusinessRules(ticketOrder);
         int totalSeats =  ticketOrder.calculateSeats();
         int totalPrice = ticketOrder.calculatePrice();
-
+        ticketPaymentService.makePayment(accountId, totalPrice);
+        seatReservationService.reserveSeat(accountId, totalSeats);
     }
 
     //implementing validation for accountId

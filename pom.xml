@@ -65,6 +65,14 @@
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
+                        <configuration>
+                            <excludes>
+                                <!-- Excludes an entire package and all sub-packages -->
+                                <exclude>thirdparty.paymentgateway</exclude>
+                                <exclude>thirdparty.seatbooking</exclude>
+
+                            </excludes>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

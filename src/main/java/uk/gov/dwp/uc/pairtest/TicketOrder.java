@@ -1,6 +1,8 @@
 package uk.gov.dwp.uc.pairtest;
 
 
+import configuration.AppConfig;
+
 public class TicketOrder {
 
     private final int adultTickets;
@@ -9,24 +11,26 @@ public class TicketOrder {
 
     private final int infantTickets;
 
-    TicketOrder (int adultTickets, int childTickets, int infantTickets) {
+    TicketOrder(int adultTickets, int childTickets, int infantTickets) {
         this.adultTickets = adultTickets;
         this.childTickets = childTickets;
         this.infantTickets = infantTickets;
     }
 
-    public int getTotalTickets () {
+    public int getTotalTickets() {
         return this.adultTickets + this.childTickets + this.infantTickets;
     }
 
     //calculate seats
-    public int calculateSeats () {
-        return 0;
+    public int calculateSeats() {
+        return this.getAdultTickets() + this.getChildTickets();
     }
 
     //calculate price
-    public int calculatePrice () {
-        return 0;
+    public int calculatePrice() {
+        return (this.getAdultTickets() * AppConfig.getAdultPrice() +
+                this.getChildTickets() * AppConfig.getChildPrice() +
+                this.getInfantTickets() * AppConfig.getInfantPrice());
     }
 
     public int getAdultTickets() {

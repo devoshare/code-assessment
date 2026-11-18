@@ -1,5 +1,6 @@
 package uk.gov.dwp.uc.pairtest;
 
+import configuration.AppConfig;
 import thirdparty.paymentgateway.TicketPaymentService;
 import thirdparty.seatbooking.SeatReservationService;
 import uk.gov.dwp.uc.pairtest.domain.TicketTypeRequest;
@@ -35,6 +36,9 @@ public class TicketServiceImpl implements TicketService {
         validateTicketType(ticketTypeRequests);
         TicketOrder ticketOrder = ticketOrderHandler.createTicketOrder(ticketTypeRequests);
         validateBusinessRules(ticketOrder);
+        int totalSeats =  ticketOrder.calculateSeats();
+        int totalPrice = ticketOrder.calculatePrice();
+
     }
 
     //implementing validation for accountId
@@ -75,7 +79,7 @@ public class TicketServiceImpl implements TicketService {
 
     //check the business rules
     private void validateBusinessRules(TicketOrder ticketOrder) {
-        if (ticketOrder.getTotalTickets() > 25) {
+        if (ticketOrder.getTotalTickets() > AppConfig.getMAXTickets()) {
             throw new InvalidPurchaseException("Maximum 25 tickets allowed  " +
                     "per purchase");
         }
@@ -92,7 +96,12 @@ public class TicketServiceImpl implements TicketService {
             throw new InvalidPurchaseException("At least 1 adult is required " +
                     "for  every 2 infants.");
         }
-
     }
+
+    //Calculate number of seats
+
+
+
+    //Calculate Payment Amount
 
 }

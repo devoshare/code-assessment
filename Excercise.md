@@ -23,9 +23,15 @@
   
 * Tests
   * Tests for TicketOrderHandler for testing aggregation logic 
-* Implementaton
+* Implementation
   * Implement the creteTicketOrder, and getTicketCount methods
 * Refactor
   * Refactored the tests to enable mocking of the object
   * Refactored the implementation methods so that tests run green.
+* Tests
+  * Tests for AppConfig that will handle the externalisation of properties
+* Implementation
+  * Implementation the AppCOnfig class for handling properties
+* Tests
+  * Tests for SeatCalculations and PaymentAmount in the TicketOrder class
   

@@ -3,11 +3,11 @@ package uk.gov.dwp.uc.pairtest;
 
 public class TicketOrder {
 
-    private int adultTickets;
+    private final int adultTickets;
 
-    private int childTickets;
+    private final int childTickets;
 
-    private int infantTickets;
+    private final int infantTickets;
 
     TicketOrder (int adultTickets, int childTickets, int infantTickets) {
         this.adultTickets = adultTickets;
@@ -17,6 +17,16 @@ public class TicketOrder {
 
     public int getTotalTickets () {
         return this.adultTickets + this.childTickets + this.infantTickets;
+    }
+
+    //calculate seats
+    public int calculateSeats () {
+        return 0;
+    }
+
+    //calculate price
+    public int calculatePrice () {
+        return 0;
     }
 
     public int getAdultTickets() {
